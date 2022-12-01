@@ -3060,3 +3060,44 @@ T*
 [ (from) -338.992 (the) -338.995 (whole) -338.988 (human) -339.019 (body) -338.983 (\050lik) 10.013 (e) -339.007 (Haar) -339.992 (w) 10.0032 (a) 19.9918 (v) 14.9828 (elets) -338.992 (\13327\135) -338.997 (and) ] TJ
 T*
 [ (HOG) -324.017 (\050histogram) -323.988 (oriented) -324.985 (gradients\051) -324.005 (\13328\135\051\056) -533.004 (Ho) 24.986 (we) 25.0154 (v) 14.9828 (er) 39.9835 (\054) -342.997 (the) 14.9877 (y) ] TJ
+11.9563 TL
+T*
+[ (perform) -360.011 (poorly) -361.013 (on) -360.009 (highly) -361.003 (congested) -359.999 (scenes) -360.994 (since) -360.009 (most) -361.008 (of) ] TJ
+11.9547 TL
+T*
+[ (the) -336.995 (tar) 17.997 (geted) -336.995 (objects) -336 (are) -337.015 (obscured\056) -570.008 (T) 79.9916 (o) -336.998 (tackle) -336.998 (this) -337.017 (problem\054) ] TJ
+T*
+[ (researchers) -214.998 (detect) -215.016 (particular) -215.013 (body) -215.003 (parts) -215.013 (instead) -215.003 (of) -216.003 (the) -215.013 (whole) ] TJ
+T*
+[ (body) -250.017 (to) -249.985 (complete) -250.012 (cro) 25.013 (wd) -249.99 (scenes) -249.993 (analysis) -250.007 (\13329\135\056) ] TJ
+/R35 10.9589 Tf
+20.7461 TL
+T*
+[ (2\0562\056) -250.004 (Regr) 17.9871 <657373696f6ead6261736564> -250.002 (appr) 17.9871 (oaches) ] TJ
+/R37 9.9626 Tf
+11.9551 -18.2059 Td
+[ (Since) -465.984 (detection\055based) -466.991 (approaches) -465.996 (can) -466.006 (not) -465.981 (be) -467.02 (adapted) ] TJ
+-11.9551 -11.9563 Td
+[ (to) -618.982 (highly) -618.019 (congested) -619.014 (scenes\054) -711.014 (researchers) -617.99 (try) -618.985 (to) -618.985 (deplo) 10.0179 (y) ] TJ
+11.9547 TL
+T*
+[ (re) 15.0098 (gression\055based) -391 (approaches) -390.989 (to) -390.984 (learn) -390.994 (the) -390.984 (relations) -391.008 (among) ] TJ
+T*
+[ (e) 15.0122 (xtracted) -404.984 (features) -404.994 (from) -404.981 (cropped) -406 (ima) 0.99493 (ge) -406.011 (patches\054) -443.99 (and) -404.986 (then) ] TJ
+T*
+[ (calculate) -332.998 (the) -332.016 (number) -332.984 (of) -333 (particular) -332.013 (objects\056) -558 (More) -332.993 (features\054) ] TJ
+ET
+Q
+Q
+Q
+q
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+1 1 1 rg
+n
+270 32 72 14 re
+f*
+0.5 0.5 0.5 rg
