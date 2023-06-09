@@ -2,4 +2,6 @@
 import matplotlib
 import matplotlib.cm
 import numpy as np
-impor
+import tensorflow as tf
+
+def colorize(val
