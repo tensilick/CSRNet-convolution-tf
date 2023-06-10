@@ -4,4 +4,6 @@ import matplotlib.cm
 import numpy as np
 import tensorflow as tf
 
-def colorize(value, vmin=None, vmax=None, cmap=None
+def colorize(value, vmin=None, vmax=None, cmap=None):
+    """
+    A utility function
