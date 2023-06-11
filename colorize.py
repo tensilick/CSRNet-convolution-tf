@@ -6,4 +6,5 @@ import tensorflow as tf
 
 def colorize(value, vmin=None, vmax=None, cmap=None):
     """
-    A utility function for TensorFlow that maps a grayscale image 
+    A utility function for TensorFlow that maps a grayscale image to a matplotlib
+    colormap for
