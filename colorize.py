@@ -8,4 +8,4 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     """
     A utility function for TensorFlow that maps a grayscale image to a matplotlib
     colormap for use with TensorBoard image summaries.
-    By default it 
+    By default it will normalize the input value to the range 0..1 b
