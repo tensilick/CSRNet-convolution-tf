@@ -11,4 +11,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     By default it will normalize the input value to the range 0..1 before mapping
     to a grayscale colormap.
     Arguments:
-      - value: 2D Tensor of shape [
+      - value: 2D Tensor of shape [height, width] or 3D Tensor of shape
+  
