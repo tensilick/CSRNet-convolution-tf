@@ -12,4 +12,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     to a grayscale colormap.
     Arguments:
       - value: 2D Tensor of shape [height, width] or 3D Tensor of shape
-  
+        [height, width, 1].
+      - vmin: the minimum value 
