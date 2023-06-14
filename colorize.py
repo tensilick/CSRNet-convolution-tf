@@ -16,4 +16,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
       - vmin: the minimum value of the range used for normalization.
         (Default: value minimum)
       - vmax: the maximum value of the range used for normalization.
-  
+        (Default: value maximum)
+      
