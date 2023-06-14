@@ -14,4 +14,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
       - value: 2D Tensor of shape [height, width] or 3D Tensor of shape
         [height, width, 1].
       - vmin: the minimum value of the range used for normalization.
-        (
+        (Default: value minimum)
+      - vmax: the maxim
