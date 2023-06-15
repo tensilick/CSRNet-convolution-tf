@@ -17,4 +17,4 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
         (Default: value minimum)
       - vmax: the maximum value of the range used for normalization.
         (Default: value maximum)
-      
+      - cmap: a valid cmap named for use with matplotli
