@@ -19,4 +19,6 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
         (Default: value maximum)
       - cmap: a valid cmap named for use with matplotlib's `get_cmap`.
         (Default: 'gray')
-    E
+    Example usage:
+    ```
+    output = tf.rand
