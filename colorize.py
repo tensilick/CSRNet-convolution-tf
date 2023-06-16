@@ -21,4 +21,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
         (Default: 'gray')
     Example usage:
     ```
-    output = tf.rand
+    output = tf.random_uniform(shape=[256, 256, 1])
+    out
