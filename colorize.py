@@ -23,4 +23,6 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     ```
     output = tf.random_uniform(shape=[256, 256, 1])
     output_color = colorize(output, vmin=0.0, vmax=1.0, cmap='viridis')
-    tf.summa
+    tf.summary.image('output', output_color)
+    ```
+    
