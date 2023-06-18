@@ -30,4 +30,4 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     """
 
     # normalize
-    v
+    vmin = tf.reduce_min(value) if vmin is None el
