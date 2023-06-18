@@ -26,4 +26,8 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     tf.summary.image('output', output_color)
     ```
     
-    Returns a 3D tensor of shape [hei
+    Returns a 3D tensor of shape [height, width, 3].
+    """
+
+    # normalize
+    v
