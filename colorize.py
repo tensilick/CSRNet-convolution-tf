@@ -34,4 +34,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     vmax = tf.reduce_max(value) if vmax is None else vmax
     value = (value - vmin) / (vmax - vmin) # vmin..vmax
 
-    # squeeze 
+    # squeeze last dim if it exists
+    value = tf.
