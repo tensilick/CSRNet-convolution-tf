@@ -35,4 +35,7 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     value = (value - vmin) / (vmax - vmin) # vmin..vmax
 
     # squeeze last dim if it exists
-    value = tf.
+    value = tf.squeeze(value)
+
+    # quantize
+  
