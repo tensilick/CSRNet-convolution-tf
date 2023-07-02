@@ -41,4 +41,6 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     indices = tf.to_int32(tf.round(value * 255))
 
     # gather
-    cm = matplotlib.cm.get_cmap(cmap if cmap is not None else 'gra
+    cm = matplotlib.cm.get_cmap(cmap if cmap is not None else 'gray')
+    colors = cm(np.arange(256))[:, :3]
+    color
