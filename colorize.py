@@ -38,4 +38,4 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     value = tf.squeeze(value)
 
     # quantize
-  
+    indices = tf.to_int32(tf.round(value 
