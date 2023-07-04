@@ -43,4 +43,5 @@ def colorize(value, vmin=None, vmax=None, cmap=None):
     # gather
     cm = matplotlib.cm.get_cmap(cmap if cmap is not None else 'gray')
     colors = cm(np.arange(256))[:, :3]
-    color
+    colors = tf.constant(colors, dtype=tf.float32)
+    v
