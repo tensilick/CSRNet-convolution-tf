@@ -98,3 +98,45 @@ def preprocess_input(x, data_format=None):
 def backend_A(f, weights = None):
 
     
+
+    x = Conv2D(512, 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A1")(model.output)
+    x = Activation('relu')(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A2")(x)
+    x = Activation('relu')(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A3")(x)
+    x = Activation('relu')(x)
+    x = Conv2D(256, 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A4")(x)
+    x = Activation('relu')(x)
+    x = Conv2D(128, 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A5")(x)
+    x = Activation('relu')(x)
+    x = Conv2D(64 , 3, padding='same', dilation_rate=1,kernel_regularizer=regularizers.l2(0.01),  name="dil_A6")(x)
+    x = Activation('relu')(x)
+
+    x = Conv2D(1, 1, padding='same', dilation_rate=1, name="dil_A7")(x)
+
+    model = Model(f.input, x, name = "Transfer_learning_model")
+    return (model)
+
+def backend_B(f, weights = None):
+    
+    
+    x = Conv2D(512, 3, padding='same', dilation_rate=2, activation = 'relu', name="dil_B1")(f.output)
+    # x = BatchNormalization(name='bn_b1')(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=2,activation = 'relu',name="dil_B2")(x)
+    # x = BatchNormalization(name='bn_b2')(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=2,activation = 'relu',name="dil_B3")(x)
+    # x = BatchNormalization(name='bn_b3')(x)
+    x = Conv2D(256, 3, padding='same', dilation_rate=2, activation = 'relu',name="dil_B4")(x)
+    # x = BatchNormalization(name='bn_b4')(x)
+    x = Conv2D(128, 3, padding='same', dilation_rate=2, activation = 'relu',name="dil_B5")(x)
+    # x = BatchNormalization(name='bn_b5')(x)
+    x = Conv2D(64 , 3, padding='same', dilation_rate=2, activation = 'relu',name="dil_B6")(x)
+    
+    x = Conv2D(1, 1, padding='same', dilation_rate=1,   name="dil_B7")(x)
+    model = Model(f.input, x, name = "Transfer_learning_model")
+    return (model)
+
+def backend_C(f, weights = None):
+
+    x = Conv2D(512, 3, padding='same', dilation_rate=2,activation='relu', name="dil_C1")(f.output)
+    x = Conv2D(512, 3, padding='same', dilation_rate=2,activation='relu', name="dil_C2")(x)
