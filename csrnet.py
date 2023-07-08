@@ -1,3 +1,51 @@
 
 import tensorflow as tf 
 from tensorflow.python.keras import layers
+from tensorflow.python.keras.layers import (Activation, AveragePooling2D,
+                                            BatchNormalization, Conv2D, Conv3D,
+                                            Dense, Flatten,
+                                            GlobalAveragePooling2D,
+                                            GlobalMaxPooling2D, Input,
+                                            MaxPooling2D, MaxPooling3D,
+                                            Reshape, Dropout, concatenate,
+											UpSampling2D)
+from tensorflow.python.keras import applications, regularizers
+from tensorflow.python.keras.models import Model, Sequential
+from tensorflow.python.keras import backend as K_B
+
+def variable_summaries(var):
+    """
+    Attach a lot of summaries to a Tensor (for TensorBoard visualization).
+    """
+    with tf.name_scope('summaries'):
+        mean = tf.reduce_mean(var)
+        tf.summary.scalar('mean', mean)
+        with tf.name_scope('stddev'):
+            stddev = tf.sqrt(tf.reduce_mean(tf.square(var - mean)))
+        tf.summary.scalar('stddev', stddev)
+        tf.summary.scalar('max', tf.reduce_max(var))
+        tf.summary.scalar('min', tf.reduce_min(var))
+        tf.summary.histogram('histogram', var)
+
+def create_non_trainable_model(base_model, BOTTLENECK_TENSOR_NAME, use_global_average = False):
+    '''
+    Parameters
+    ----------
+    base_model: This is the pre-trained base model with which the non-trainable model is built
+
+    Note: The term non-trainable can be confusing. The non-trainable-parametes are present only in this
+    model. The other model (trianable model doesnt have any non-trainable parameters). But if you chose to 
+    omit the bottlenecks due to any reason, you will be training this network only. (If you choose
+    --omit_bottleneck flag). So please adjust the place in this function where I have intentionally made 
+    certain layers non-trainable.
+
+    Returns
+    -------
+    non_trainable_model: This is the model object which is the modified version of the base_model that has
+    been invoked in the beginning. This can have trainable or non trainable parameters. If bottlenecks are
+    created, then this network is completely non trainable, (i.e) this network's output is the bottleneck
+    and the network created in the trainable is used for training with bottlenecks as input. If bottlenecks
+    arent created, then this network is trained. So please use accordingly.
+    '''
+    # This post-processing of the deep neural network is to avoid memory errors
+    x = (base_model.get_layer(BOTTLENECK_TENSOR_NAME))
