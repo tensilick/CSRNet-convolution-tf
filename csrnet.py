@@ -140,3 +140,57 @@ def backend_C(f, weights = None):
 
     x = Conv2D(512, 3, padding='same', dilation_rate=2,activation='relu', name="dil_C1")(f.output)
     x = Conv2D(512, 3, padding='same', dilation_rate=2,activation='relu', name="dil_C2")(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=2,activation='relu', name="dil_C3")(x)
+    x = Conv2D(256, 3, padding='same', dilation_rate=4,activation='relu', name="dil_C4")(x)
+    x = Conv2D(128, 3, padding='same', dilation_rate=4,activation='relu', name="dil_C5")(x)
+    x = Conv2D(64 , 3, padding='same', dilation_rate=4,activation='relu', name="dil_C6")(x)
+
+    x = Conv2D(1, 1, padding='same', dilation_rate=1, name="dil_C7")(x)
+    model = Model(f.input, x, name = "Transfer_learning_model")
+    return (model)
+
+def backend_D(f, weights = None):
+
+    x = Conv2D(512, 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D1")(f.output)
+    x = Conv2D(512, 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D2")(x)
+    x = Conv2D(512, 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D3")(x)
+    x = Conv2D(256, 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D4")(x)
+    x = Conv2D(128, 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D5")(x)
+    x = Conv2D(64 , 3, padding='same', dilation_rate=4 ,activation='relu', name="dil_D6")(x)
+
+    x = Conv2D(1, 1, padding='same', dilation_rate=1, name="dil_D7")(x)
+    model = Model(f.input, x, name = "Transfer_learning_model")
+    return (model)
+
+def create_full_model(input_images, c='a'):
+    input_images = preprocess_input(input_images)
+    base_model = applications.VGG16(input_tensor=input_images, weights='imagenet', include_top=False, input_shape=(256, 256, 3))
+    BOTTLENECK_TENSOR_NAME = 'block4_conv3' # This is the 13th layer in VGG16
+
+    f = create_non_trainable_model(base_model, BOTTLENECK_TENSOR_NAME) # Frontend
+    
+    if c == 'a':
+        b = backend_A(f)
+    if c == 'b':
+        b = backend_B(f)
+    if c == 'c':
+        b = backend_C(f)
+    if c == 'd':
+        b = backend_D(f)
+
+    return b
+
+def loss_funcs(b,labels):
+    out = b.output
+    mse = tf.losses.mean_squared_error(out,labels)
+    
+    with tf.name_scope('loss'):
+        variable_summaries(mse)
+    
+    with tf.name_scope('Predictions'):
+        variable_summaries(out)
+    
+    return mse
+
+
+if __name__ == '__main__':
