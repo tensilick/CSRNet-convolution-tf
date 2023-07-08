@@ -49,3 +49,52 @@ def create_non_trainable_model(base_model, BOTTLENECK_TENSOR_NAME, use_global_av
     '''
     # This post-processing of the deep neural network is to avoid memory errors
     x = (base_model.get_layer(BOTTLENECK_TENSOR_NAME))
+    all_layers = base_model.layers
+    for i in range(base_model.layers.index(x)):
+        all_layers[i].trainable = False
+    mid_out = base_model.layers[base_model.layers.index(x)]
+    variable_summaries(mid_out.output)
+    non_trainable_model = Model(base_model.input, mid_out.output)
+    #non_trainable_model = Model(inputs = base_model.input, outputs = [x])
+    
+    # for layer in non_trainable_model.layers:
+    #     layer.trainable = False
+    
+    return (non_trainable_model)
+def preprocess_input(x, data_format=None):
+    """Preprocesses a tensor encoding a batch of images.
+
+    # Arguments
+        x: input Numpy tensor, 4D.
+        data_format: data format of the image tensor.
+
+    # Returns
+        Preprocessed tensor.
+    """
+    if data_format is None:
+        data_format = K_B.image_data_format()
+    assert data_format in {'channels_last', 'channels_first'}
+
+    if data_format == 'channels_first':
+        # 'RGB'->'BGR'
+        x = x[::-1, :, :]
+        # Zero-center by mean pixel
+        x = x - tf.stack((tf.ones_like(x[0,:, :,:])*tf.constant(103.939),
+                        tf.ones_like(x[1,:, :,:])*tf.constant(116.779)
+                        ,tf.ones_like(x[2,:, :,:])*tf.constant(123.68)),axis=-1)
+    
+    else:
+        # 'RGB'->'BGR'
+        x = x[ :, :, ::-1]
+        # Zero-center by mean pixel
+        x = x - tf.stack((tf.ones_like(x[:,:,:,0])*tf.constant(103.939),
+                        tf.ones_like(x[:,:,:,1])*tf.constant(116.779)
+                        ,tf.ones_like(x[:,:,:,2])*tf.constant(123.68)),axis=-1)
+    
+    # x = 2*x/255
+
+    return x
+
+def backend_A(f, weights = None):
+
+    
