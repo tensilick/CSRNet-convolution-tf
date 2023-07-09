@@ -194,3 +194,13 @@ def loss_funcs(b,labels):
 
 
 if __name__ == '__main__':
+    import numpy as np
+
+    x = tf.placeholder(tf.float32, [None, 224,224,3])
+    m = create_full_model(x, 'a')
+    xhat = np.random.random([2, 224, 224 , 3])
+    init = tf.global_variables_initializer()
+    with K_B.get_session() as sess:
+        sess.run(init)
+        out = sess.run(m.get_layer('block4_conv3').output, feed_dict={x:xhat})
+        print (out[0] == out[1])
