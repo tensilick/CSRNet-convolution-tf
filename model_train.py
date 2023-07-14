@@ -55,3 +55,50 @@ if __name__ == '__main__':
             tf.logging.info("Training only variables in: " + str(i))
         optimizer = tf.train.AdamOptimizer(learning_rate=1e-6)
 <<<<<<< HEAD
+        opA = optimizer.minimize(loss_A,global_step=global_step_tensor, var_list=vars_encoder)
+=======
+        opB = optimizer.minimize(loss_B,global_step=global_step_tensor)
+>>>>>>> 7952acaa234ba84ddc616cc82e9b3560c88ae96c
+        
+    with K_B.get_session() as sess:
+        
+        sess.run(init)
+        summary_writer = tf.summary.FileWriter(args.log_directory, sess.graph)    
+        summary = tf.summary.merge_all()
+        
+        saver = tf.train.Saver()
+
+        tf.logging.info('Tensorboard logs will be written to ' + str(args.log_directory))
+
+        if args.load_ckpt is not None:
+
+            if exists(args.load_ckpt):
+                if tf.train.latest_checkpoint(args.load_ckpt) is not None:
+                    tf.logging.info('Loading Checkpoint from '+ tf.train.latest_checkpoint(args.load_ckpt))
+                    saver.restore(sess, tf.train.latest_checkpoint(args.load_ckpt))
+
+                else:
+                    tf.logging.info('Training from Scratch -  No Checkpoint found')
+        
+        else:
+            tf.logging.info('Training from scratch')
+
+        tf.logging.info('Training with Batch Size %d for %d epochs'%(args.batch_size,args.no_epochs))
+
+        while True:    
+        # Training Iterations Begin
+            global_step,_ = sess.run([global_step_tensor,opB],options = runopts)
+            if global_step%(args.display_step)==0:
+                loss_val = sess.run([loss_B],options = runopts)
+                tf.logging.info('Iteration: ' + str(global_step) + ' Loss: ' +str(loss_val))
+            
+            if global_step%(args.summary_freq)==0:
+                tf.logging.info('Summary Written')
+                summary_str = sess.run(summary)
+                summary_writer.add_summary(summary_str, global_step)
+            
+            if global_step%(args.save_freq)==0:
+                saver.save(sess,args.ckpt_savedir,global_step=tf.train.get_global_step())
+
+            if np.floor(global_step/no_iter_per_epoch) == args.no_epochs:
+                break
