@@ -1,3 +1,5 @@
 import tensorflow as tf
 import cv2
-import nu
+import numpy as np
+from random import shuffle
+import glo
