@@ -6,4 +6,7 @@ import glob
 import sys
 import os
 
-root = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/ShanghaiTech/part_A/train_data/images/
+root = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/ShanghaiTech/part_A/train_data/images/'
+
+def get_filenames():
+    filenames = os.listdir(
