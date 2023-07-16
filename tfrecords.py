@@ -6,4 +6,4 @@ import glob
 import sys
 import os
 
-root = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/Sha
+root = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/ShanghaiTech/part_A/train_data/images/
