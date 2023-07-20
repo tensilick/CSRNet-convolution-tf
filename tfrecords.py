@@ -11,4 +11,6 @@ root = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/ShanghaiTech/part_A/train_
 def get_filenames():
     filenames = os.listdir(root)
     image_files = []
-    label_files =
+    label_files = []
+    for i in filenames:
+        im_fil
