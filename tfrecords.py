@@ -13,4 +13,5 @@ def get_filenames():
     image_files = []
     label_files = []
     for i in filenames:
-        im_fil
+        im_file = os.path.join(root,i)
+        image_file
