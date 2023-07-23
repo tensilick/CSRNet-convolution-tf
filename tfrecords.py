@@ -15,4 +15,5 @@ def get_filenames():
     for i in filenames:
         im_file = os.path.join(root,i)
         image_files.append(im_file)
-        label_files.append(im_file.replace('IMG_','LAB_').replace('
+        label_files.append(im_file.replace('IMG_','LAB_').replace('.jpg','.npy').replace('images','labels'))
+    return i
