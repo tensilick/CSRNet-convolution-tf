@@ -19,4 +19,5 @@ def get_filenames():
     return image_files,label_files
 
 shuffle_data = True  # shuffle the addresses before saving
-# read a
+# read addresses and labels from the 'train' folder
+t
