@@ -18,4 +18,5 @@ def get_filenames():
         label_files.append(im_file.replace('IMG_','LAB_').replace('.jpg','.npy').replace('images','labels'))
     return image_files,label_files
 
-shuffle_data = 
+shuffle_data = True  # shuffle the addresses before saving
+# read a
