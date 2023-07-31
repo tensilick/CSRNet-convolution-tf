@@ -20,4 +20,7 @@ def get_filenames():
 
 shuffle_data = True  # shuffle the addresses before saving
 # read addresses and labels from the 'train' folder
-train_addrs,train_labels = get_filename
+train_addrs,train_labels = get_filenames()
+# to shuffle data
+if shuffle_data:
+    c =
