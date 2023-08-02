@@ -23,4 +23,6 @@ shuffle_data = True  # shuffle the addresses before saving
 train_addrs,train_labels = get_filenames()
 # to shuffle data
 if shuffle_data:
-    c = list(zip(train_addrs, train_label
+    c = list(zip(train_addrs, train_labels))
+    shuffle(c)
+    train_addrs, train_la
