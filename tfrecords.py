@@ -25,4 +25,7 @@ train_addrs,train_labels = get_filenames()
 if shuffle_data:
     c = list(zip(train_addrs, train_labels))
     shuffle(c)
-    train_addrs, train_la
+    train_addrs, train_labels = zip(*c)
+
+def load_image(addr):
+    # rea
