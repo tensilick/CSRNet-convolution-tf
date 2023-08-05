@@ -28,4 +28,5 @@ if shuffle_data:
     train_addrs, train_labels = zip(*c)
 
 def load_image(addr):
-    # rea
+    # read an image and resize to (224, 224)
+    
