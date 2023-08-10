@@ -37,4 +37,5 @@ def load_image(addr):
     return img
 
 def load_labels(addr):
-   
+    lab = np.load(addr)
+    lab.astype(np.float3
