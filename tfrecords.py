@@ -38,4 +38,6 @@ def load_image(addr):
 
 def load_labels(addr):
     lab = np.load(addr)
-    lab.astype(np.float3
+    lab.astype(np.float32)
+    lab = np.array(lab)
+    lab = cv2.resize(lab,(224,224),
