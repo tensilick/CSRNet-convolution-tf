@@ -45,4 +45,4 @@ def load_labels(addr):
     return lab
 
 def _bytes_feature(value):
-  retu
+  return tf.train.Feature(bytes_list=tf.train.B
