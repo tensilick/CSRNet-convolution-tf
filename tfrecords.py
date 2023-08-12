@@ -41,4 +41,7 @@ def load_labels(addr):
     lab.astype(np.float32)
     lab = np.array(lab)
     lab = cv2.resize(lab,(224,224), interpolation=cv2.INTER_CUBIC)
-    lab.asty
+    lab.astype(np.float32)    
+    return lab
+
+def
