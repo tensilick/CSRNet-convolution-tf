@@ -44,4 +44,5 @@ def load_labels(addr):
     lab.astype(np.float32)    
     return lab
 
-def
+def _bytes_feature(value):
+  retu
