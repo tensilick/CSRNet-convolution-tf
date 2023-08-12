@@ -45,4 +45,6 @@ def load_labels(addr):
     return lab
 
 def _bytes_feature(value):
-  return tf.train.Feature(bytes_list=tf.train.B
+  return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
+
+train_filename =
