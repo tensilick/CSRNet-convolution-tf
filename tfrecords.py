@@ -51,4 +51,5 @@ train_filename = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/train.tfrecords'
 # open the TFRecords file
 writer = tf.python_io.TFRecordWriter(train_filename)
 for i in range(len(train_addrs)):
+    # print how many images are saved every 1000 images
  
