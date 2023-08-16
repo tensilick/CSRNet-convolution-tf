@@ -47,4 +47,5 @@ def load_labels(addr):
 def _bytes_feature(value):
   return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
-train_filename = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/train.tfrecords'  # address to save the TFRec
+train_filename = '/home/rishhanth/Documents/gen_codes/CSRNet-tf/train.tfrecords'  # address to save the TFRecords file
+# open the TFRecords fil
