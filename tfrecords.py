@@ -53,4 +53,5 @@ writer = tf.python_io.TFRecordWriter(train_filename)
 for i in range(len(train_addrs)):
     # print how many images are saved every 1000 images
     if not i % 10:
-        print('Train d
+        print('Train data: {}/{}'.format(i, len(train_addrs)))
+    
