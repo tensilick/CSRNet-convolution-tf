@@ -54,4 +54,6 @@ for i in range(len(train_addrs)):
     # print how many images are saved every 1000 images
     if not i % 10:
         print('Train data: {}/{}'.format(i, len(train_addrs)))
+        sys.stdout.flush()
+    # Load the image
     
