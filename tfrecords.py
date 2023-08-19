@@ -56,4 +56,5 @@ for i in range(len(train_addrs)):
         print('Train data: {}/{}'.format(i, len(train_addrs)))
         sys.stdout.flush()
     # Load the image
-    
+    img = load_image(train_addrs[i])
+    label = load
