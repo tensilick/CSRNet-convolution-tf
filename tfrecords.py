@@ -58,4 +58,5 @@ for i in range(len(train_addrs)):
     # Load the image
     img = load_image(train_addrs[i])
     label = load_labels(train_labels[i])
-    # Creat
+    # Create a feature
+    feature = {'train/labe
