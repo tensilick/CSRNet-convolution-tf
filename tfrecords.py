@@ -62,4 +62,7 @@ for i in range(len(train_addrs)):
     feature = {'train/label': _bytes_feature(tf.compat.as_bytes(label.tostring())),
                'train/image': _bytes_feature(tf.compat.as_bytes(img.tostring()))}
     # Create an example protocol buffer
-    example = tf.train.Example(features=tf.train.Features(feature=fe
+    example = tf.train.Example(features=tf.train.Features(feature=feature))
+    
+    # Serialize to string and write on the file
+  
