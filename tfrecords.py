@@ -60,4 +60,5 @@ for i in range(len(train_addrs)):
     label = load_labels(train_labels[i])
     # Create a feature
     feature = {'train/label': _bytes_feature(tf.compat.as_bytes(label.tostring())),
-               'train/image': _bytes_feature(tf.compat.as_by
+               'train/image': _bytes_feature(tf.compat.as_bytes(img.tostring()))}
+    # Create an example 
