@@ -61,4 +61,5 @@ for i in range(len(train_addrs)):
     # Create a feature
     feature = {'train/label': _bytes_feature(tf.compat.as_bytes(label.tostring())),
                'train/image': _bytes_feature(tf.compat.as_bytes(img.tostring()))}
-    # Create an example 
+    # Create an example protocol buffer
+    example = tf.train.Exam
