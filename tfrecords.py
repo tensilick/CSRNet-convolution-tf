@@ -65,4 +65,7 @@ for i in range(len(train_addrs)):
     example = tf.train.Example(features=tf.train.Features(feature=feature))
     
     # Serialize to string and write on the file
-    writer.write(example.SerializeToStri
+    writer.write(example.SerializeToString())
+    
+writer.close()
+sys.stdout.flus
