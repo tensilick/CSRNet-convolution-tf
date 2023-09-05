@@ -68,4 +68,4 @@ for i in range(len(train_addrs)):
     writer.write(example.SerializeToString())
     
 writer.close()
-sys.stdout.flus
+sys.stdout.flush()
